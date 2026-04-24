@@ -30,8 +30,10 @@ function App() {
     try {
       const response = await axios.post(`${API_BASE_URL}/todos`, todo);
       setTodos([response.data, ...todos]);
+      alert("Add successfully");
     } catch (error) {
       setError('Failed to add todo');
+      alert("Failed to add todo");
     }
   };
 
@@ -39,8 +41,10 @@ function App() {
     try {
       const response = await axios.put(`${API_BASE_URL}/todos/${id}`, updatedTodo);
       setTodos(todos.map(todo => todo._id === id ? response.data : todo));
+      alert("Update successfully");
     } catch (error) {
       setError('Failed to update todo');
+      alert("Failed to update todo");
     }
   };
 
